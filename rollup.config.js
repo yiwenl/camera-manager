@@ -20,7 +20,9 @@ export default [
     ],
     plugins: [
       resolve(),
-      typescript()
+      typescript({
+        tsconfig: './tsconfig.build.json'
+      })
     ]
   },
   // Test config
