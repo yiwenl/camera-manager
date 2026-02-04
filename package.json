@@ -5,10 +5,21 @@
   "main": "dist/camera-manager.umd.js",
   "module": "dist/camera-manager.es.js",
   "types": "dist/CameraManager.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/CameraManager.d.ts",
+      "import": "./dist/camera-manager.es.js",
+      "require": "./dist/camera-manager.umd.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c",
     "dev": "rollup -c -w",
+    "prepare": "npm run build",
     "start": "serve ."
   },
   "repository": {
