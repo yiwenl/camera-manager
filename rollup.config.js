@@ -25,22 +25,4 @@ export default [
       })
     ]
   },
-  // Test config
-  {
-    input: 'dev/test.ts',
-    output: {
-        file: 'dist/test.js',
-        format: 'iife',
-        name: 'Test',
-        sourcemap: true
-    },
-    plugins: [
-        typescript({
-            compilerOptions: {
-                declaration: false
-            }
-        }),
-        resolve()
-    ]
-  }
 ];

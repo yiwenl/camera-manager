@@ -8,6 +8,12 @@ The `CameraManager` module handles the complexities of hardware permissions, str
 
 ---
 
+## Installation
+
+```bash
+npm install git+https://github.com/yiwenl/camera-manager.git
+```
+
 ## Constructor
 
 ```javascript
@@ -80,7 +86,7 @@ Captures the current frame as a Data URL.
 This module allows multiple independent observers to listen to the same camera feed.
 
 ```javascript
-import { CameraManager } from './modules/CameraManager.js';
+import { CameraManager } from 'camera-manager';
 
 const camera = new CameraManager({ width: 640, height: 480 });
 
@@ -107,3 +113,13 @@ await camera.start();
 
 - **Zero DOM Footprint**: Creates an internal, detached `<video>` element. You do not need to add a video tag to your HTML unless you want to preview the feed.
 - **Optimized Loop**: Uses `requestVideoFrameCallback` where supported to ensure your ML logic only runs when a new frame is actually delivered by the camera hardware.
+
+## Development
+
+```bash
+# Start the dev server (Vite)
+npm run dev
+
+# Build the library (Rollup)
+npm run build
+```
