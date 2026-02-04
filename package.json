@@ -2,9 +2,14 @@
   "name": "camera-manager",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/camera-manager.umd.js",
+  "module": "dist/camera-manager.es.js",
+  "types": "dist/CameraManager.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "start": "serve ."
   },
   "repository": {
     "type": "git",
@@ -17,5 +22,13 @@
   "bugs": {
     "url": "https://github.com/yiwenl/camera-manager/issues"
   },
-  "homepage": "https://github.com/yiwenl/camera-manager#readme"
+  "homepage": "https://github.com/yiwenl/camera-manager#readme",
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-typescript": "^12.3.0",
+    "rollup": "^4.57.1",
+    "serve": "^14.2.5",
+    "tslib": "^2.8.1",
+    "typescript": "^5.9.3"
+  }
 }

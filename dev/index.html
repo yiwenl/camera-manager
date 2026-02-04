@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera Manager Module Test</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        #controls { margin-bottom: 20px; }
+        video { border: 1px solid #ccc; max-width: 100%; }
+        #status { margin-top: 10px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Camera Manager Module Test</h1>
+    <div id="controls">
+        <button id="btn-start">Start</button>
+        <button id="btn-pause">Pause</button>
+        <button id="btn-resume">Resume</button>
+        <button id="btn-stop">Stop</button>
+        <button id="btn-snap">Snapshot</button>
+    </div>
+    <div id="container"></div>
+    <div id="status">Status: Idle</div>
+    <img id="snapshot" alt="Snapshot" style="border: 1px solid red; max-width: 200px; display: none;">
+
+    <script src="../dist/test.js"></script>
+</body>
+</html>

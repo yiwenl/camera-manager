@@ -1,17 +1,17 @@
-# Lens Camera Module API
+# Camera Manager Module API
 
 A lightweight, event-driven JavaScript wrapper for `getUserMedia` designed for real-time ML experiments (Face Mesh, Skeleton Detection, etc.).
 
 ## Overview
 
-The `Lens` module handles the complexities of hardware permissions, stream lifecycle, and provides a synchronized "game loop" for processing video frames.
+The `CameraManager` module handles the complexities of hardware permissions, stream lifecycle, and provides a synchronized "game loop" for processing video frames.
 
 ---
 
 ## Constructor
 
 ```javascript
-const camera = new Lens(options);
+const camera = new CameraManager(options);
 ```
 
 ### Options
@@ -23,6 +23,11 @@ const camera = new Lens(options);
 | `facingMode` | `string` | `'user'` | `'user'` (front) or `'environment'` (back). |
 | `fps` | `number` | `30` | Target frame rate for the frame event loop. |
 
+## Properties
+
+| Property | Type | Description |
+| :--- | :--- | :--- |
+| `video` | `HTMLVideoElement` | The internal video element. Useful for passing to ML libraries (e.g., TensorFlow.js). |
 
 ## Methods
 
@@ -38,6 +43,10 @@ Initializes the camera hardware and begins the internal loop.
 ### `stop()`
 
 Stops all active media tracks and cancels the animation frame loop. This turns off the camera hardware LED.
+
+### `dispose()`
+
+Permanently cleans up the camera manager instance. Stops the camera, removes event listeners, and clears cached resources. Call this when the module is no longer needed.
 
 ### `pause()`
 
@@ -55,7 +64,7 @@ Captures the current frame as a Data URL.
 
 ## Events
 
-`Lens` inherits from `EventTarget`. Use `addEventListener` to subscribe to lifecycle changes.
+`CameraManager` inherits from `EventTarget`. Use `addEventListener` to subscribe to lifecycle changes.
 
 | Event Name | `e.detail` Properties | Trigger Timing |
 | :--- | :--- | :--- |
@@ -71,9 +80,9 @@ Captures the current frame as a Data URL.
 This module allows multiple independent observers to listen to the same camera feed.
 
 ```javascript
-import { Lens } from './modules/Lens.js';
+import { CameraManager } from './modules/CameraManager.js';
 
-const camera = new Lens({ width: 640, height: 480 });
+const camera = new CameraManager({ width: 640, height: 480 });
 
 // 1. Face Mesh Observer
 camera.addEventListener('frame', ({ detail }) => {
